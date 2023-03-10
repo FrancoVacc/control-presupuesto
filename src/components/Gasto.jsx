@@ -1,11 +1,11 @@
 import React from "react";
 
 const Gasto = ({ gasto }) => {
-  const { id, nombre, categoria, cantidad } = gasto;
+  const { id, name, categoria, cantidad } = gasto;
   return (
     <div>
       <p>{id}</p>
-      <p>{nombre}</p>
+      <p>{name}</p>
       <p>{categoria}</p>
       <p>{cantidad}</p>
     </div>

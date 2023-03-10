@@ -1,15 +1,17 @@
 import React from "react";
+import { useGastosContext } from "../context/GastoContext";
 import NuevoPresupuesto from "./NuevoPresupuesto";
 import PresupuestoValido from "./PresupuestoValido";
 
-const Header = ({
-  setPresupuesto,
-  presupuesto,
-  isValidPresupuesto,
-  setIsValidPresupuesto,
-  disponible,
-  utilizado,
-}) => {
+const Header = () => {
+  const {
+    setPresupuesto,
+    presupuesto,
+    isValidPresupuesto,
+    setIsValidPresupuesto,
+    disponible,
+    utilizado,
+  } = useGastosContext();
   return (
     <header>
       <h1>Controlador de Gastos</h1>

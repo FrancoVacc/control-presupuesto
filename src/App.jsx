@@ -1,21 +1,12 @@
 import { useState } from "react";
 import Header from "./components/Header";
 import imgNuevoGasto from "./img/nuevo-gasto.svg";
-
 import Modal from "./components/Modal";
 import Gasto from "./components/Gasto";
-
-const initialData = [
-  { id: 1, nombre: "prueba", cantidad: "500", categoria: "ahorro" },
-  { id: 2, nombre: "prueba2", cantidad: "1000", categoria: "comida" },
-];
+import { useGastosContext } from "./context/GastoContext";
 
 function App() {
-  const [presupuesto, setPresupuesto] = useState(0);
-  const [isValidPresupuesto, setIsValidPresupuesto] = useState(false);
-  const [disponible, setDisponible] = useState(presupuesto);
-  const [utilizado, setUtilizado] = useState(0);
-  const [gastos, setGastos] = useState(initialData);
+  const { isValidPresupuesto, gastos } = useGastosContext();
 
   const [modal, setModal] = useState(false);
   const [animarModal, setAnimarModal] = useState(false);
@@ -35,29 +26,23 @@ function App() {
 
   return (
     <>
-      <Header
-        presupuesto={presupuesto}
-        setPresupuesto={setPresupuesto}
-        isValidPresupuesto={isValidPresupuesto}
-        setIsValidPresupuesto={setIsValidPresupuesto}
-        disponible={disponible}
-        setDisponible={setDisponible}
-        utilizado={utilizado}
-        setUtilizado={setUtilizado}
-      />
+      <Header />
       {isValidPresupuesto && (
         <div className="nuevo-gasto" onClick={handleModal}>
           <img src={imgNuevoGasto} alt="" />
         </div>
       )}
       {modal && <Modal handleModal={handleModal} animarModal={animarModal} />}
-      {gastos.length > 0 &&
-        isValidPresupuesto &&
-        gastos.map((gasto) => (
-          <div key={gasto.id}>
-            <Gasto gasto={gasto} />
-          </div>
-        ))}
+      {gastos.length > 0 && isValidPresupuesto && (
+        <div>
+          <h2>Listado de gastos</h2>
+          {gastos.map((gasto) => (
+            <div key={gasto.id}>
+              <Gasto gasto={gasto} />
+            </div>
+          ))}
+        </div>
+      )}
     </>
   );
 }

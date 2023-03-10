@@ -1,7 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
+import { useGastosContext } from "../context/GastoContext";
 import imgCerrarModal from "../img/cerrar.svg";
 
 const Modal = ({ handleModal, animarModal }) => {
+  const [nuevoGasto, setNuevoGasto] = useState({
+    name: "",
+    cantidad: "",
+    categoria: "",
+  });
+  const [error, setError] = useState(false);
+
+  const { gastos, setGastos } = useGastosContext();
+
+  const handleSubit = (e) => {
+    e.preventDefault();
+    if (nuevoGasto.name.trim() === "") {
+      setError("El texto es un campo obligatorio");
+      return;
+    }
+    if (nuevoGasto.cantidad === "" || nuevoGasto.cantidad <= 0) {
+      setError("El gasto debe ser mayor a 0");
+      return;
+    }
+    if (nuevoGasto.categoria === "") {
+      setError("Debe elegir una categoría");
+      return;
+    }
+    const newGasto = [...gastos, { ...nuevoGasto, id: Date.now() }];
+    setGastos(newGasto);
+    setNuevoGasto({ ...nuevoGasto, name: "", cantidad: "", categoria: "" });
+    handleModal();
+  };
+
   return (
     <div className="modal">
       <div className="cerrar-modal">
@@ -15,6 +45,10 @@ const Modal = ({ handleModal, animarModal }) => {
             type="text"
             name="nombre"
             id="nombre"
+            value={nuevoGasto.name}
+            onChange={(e) =>
+              setNuevoGasto({ ...nuevoGasto, name: e.target.value })
+            }
             placeholder="Agregue un nuevo gasto"
           />
         </div>
@@ -24,10 +58,20 @@ const Modal = ({ handleModal, animarModal }) => {
             type="number"
             name="cantidad"
             id="cantidad"
+            value={nuevoGasto.cantidad}
+            onChange={(e) =>
+              setNuevoGasto({ ...nuevoGasto, cantidad: e.target.value })
+            }
             placeholder="Agregue una cantidad"
           />
         </div>
-        <div className="campo">
+        <div
+          className="campo"
+          value={nuevoGasto.categoria}
+          onChange={(e) =>
+            setNuevoGasto({ ...nuevoGasto, categoria: e.target.value })
+          }
+        >
           <label htmlFor="categoría">Categoría</label>
           <select id="categoria">
             <option value="">-- Seleccione --</option>
@@ -40,7 +84,8 @@ const Modal = ({ handleModal, animarModal }) => {
             <option value="suscripciones">Suscripciones</option>
           </select>
         </div>
-        <input type="submit" value="Añadir Gasto" />
+        <input type="submit" value="Añadir Gasto" onClick={handleSubit} />
+        {error && <p className="validation ">{error}</p>}
       </form>
     </div>
   );
