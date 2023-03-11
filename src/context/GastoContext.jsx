@@ -10,6 +10,9 @@ const GastoProvider = ({ children }) => {
   const [disponible, setDisponible] = useState(presupuesto);
   const [utilizado, setUtilizado] = useState(0);
   const [gastos, setGastos] = useState(initialData);
+  const [gastoEditar, setGastoEditar] = useState(null);
+  const [modal, setModal] = useState(false);
+  const [animarModal, setAnimarModal] = useState(false);
 
   return (
     <GastoContext.Provider
@@ -24,6 +27,12 @@ const GastoProvider = ({ children }) => {
         setUtilizado,
         gastos,
         setGastos,
+        gastoEditar,
+        setGastoEditar,
+        modal,
+        setModal,
+        animarModal,
+        setAnimarModal,
       }}
     >
       {children}

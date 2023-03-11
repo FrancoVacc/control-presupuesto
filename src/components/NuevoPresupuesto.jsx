@@ -1,11 +1,10 @@
 import React, { useState } from "react";
+import { useGastosContext } from "../context/GastoContext";
 import Validation from "./Validation";
 
-const NuevoPresupuesto = ({
-  setPresupuesto,
-  presupuesto,
-  setIsValidPresupuesto,
-}) => {
+const NuevoPresupuesto = () => {
+  const { setPresupuesto, presupuesto, setIsValidPresupuesto } =
+    useGastosContext();
   const [validation, setValidation] = useState(false);
 
   const handleSubmit = (e) => {

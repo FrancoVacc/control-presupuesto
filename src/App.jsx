@@ -1,16 +1,12 @@
-import { useState } from "react";
 import Header from "./components/Header";
 import imgNuevoGasto from "./img/nuevo-gasto.svg";
 import Modal from "./components/Modal";
-import Gasto from "./components/Gasto";
 import { useGastosContext } from "./context/GastoContext";
 import ListadoGastos from "./components/ListadoGastos";
 
 function App() {
-  const { isValidPresupuesto, gastos } = useGastosContext();
-
-  const [modal, setModal] = useState(false);
-  const [animarModal, setAnimarModal] = useState(false);
+  const { isValidPresupuesto, modal, setModal, animarModal, setAnimarModal } =
+    useGastosContext();
 
   const handleModal = () => {
     if (!modal) {
@@ -26,11 +22,11 @@ function App() {
   };
 
   return (
-    <div className={modal && "fijar"}>
+    <div className={modal ? "fijar" : ""}>
       <Header />
       {isValidPresupuesto && (
         <>
-          <ListadoGastos />
+          <ListadoGastos handleModal={handleModal} />
           <div className="nuevo-gasto" onClick={handleModal}>
             <img src={imgNuevoGasto} alt="" />
           </div>

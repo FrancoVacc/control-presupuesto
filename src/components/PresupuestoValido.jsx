@@ -1,4 +1,25 @@
-const PresupuestoValido = ({ presupuesto, disponible, utilizado }) => {
+import { useEffect } from "react";
+import { useGastosContext } from "../context/GastoContext";
+
+const PresupuestoValido = () => {
+  const {
+    presupuesto,
+    disponible,
+    setDisponible,
+    utilizado,
+    setUtilizado,
+    gastos,
+  } = useGastosContext();
+
+  useEffect(() => {
+    const totalGastos = gastos.reduce(
+      (total, gasto) => parseInt(gasto.cantidad) + parseInt(total),
+      0
+    );
+    setUtilizado(totalGastos);
+    setDisponible(parseInt(presupuesto) - parseInt(totalGastos));
+  }, [gastos]);
+
   const formateo = (cantidad) => {
     return cantidad.toLocaleString("en-US", {
       style: "currency",
