@@ -11,7 +11,8 @@ const Modal = ({ handleModal, animarModal }) => {
   const [error, setError] = useState(false);
 
   const { gastos, setGastos } = useGastosContext();
-
+  const opciones = { year: "numeric", month: "long", day: "2-digit" };
+  const fecha = new Date();
   const handleSubit = (e) => {
     e.preventDefault();
     if (nuevoGasto.name.trim() === "") {
@@ -26,8 +27,16 @@ const Modal = ({ handleModal, animarModal }) => {
       setError("Debe elegir una categoría");
       return;
     }
-    const newGasto = [...gastos, { ...nuevoGasto, id: Date.now() }];
+    const newGasto = [
+      ...gastos,
+      {
+        ...nuevoGasto,
+        id: Date.now(),
+        fecha: fecha.toLocaleString("es-ES", opciones),
+      },
+    ];
     setGastos(newGasto);
+    console.log(newGasto);
     setNuevoGasto({ ...nuevoGasto, name: "", cantidad: "", categoria: "" });
     handleModal();
   };

@@ -2,10 +2,7 @@ import { useContext, createContext, useState } from "react";
 
 export const GastoContext = createContext();
 
-const initialData = [
-  { id: 1, name: "prueba", cantidad: "500", categoria: "ahorro" },
-  { id: 2, name: "prueba2", cantidad: "1000", categoria: "comida" },
-];
+const initialData = [];
 
 const GastoProvider = ({ children }) => {
   const [presupuesto, setPresupuesto] = useState(0);

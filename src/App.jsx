@@ -4,6 +4,7 @@ import imgNuevoGasto from "./img/nuevo-gasto.svg";
 import Modal from "./components/Modal";
 import Gasto from "./components/Gasto";
 import { useGastosContext } from "./context/GastoContext";
+import ListadoGastos from "./components/ListadoGastos";
 
 function App() {
   const { isValidPresupuesto, gastos } = useGastosContext();
@@ -25,25 +26,18 @@ function App() {
   };
 
   return (
-    <>
+    <div className={modal && "fijar"}>
       <Header />
       {isValidPresupuesto && (
-        <div className="nuevo-gasto" onClick={handleModal}>
-          <img src={imgNuevoGasto} alt="" />
-        </div>
+        <>
+          <ListadoGastos />
+          <div className="nuevo-gasto" onClick={handleModal}>
+            <img src={imgNuevoGasto} alt="" />
+          </div>
+        </>
       )}
       {modal && <Modal handleModal={handleModal} animarModal={animarModal} />}
-      {gastos.length > 0 && isValidPresupuesto && (
-        <div>
-          <h2>Listado de gastos</h2>
-          {gastos.map((gasto) => (
-            <div key={gasto.id}>
-              <Gasto gasto={gasto} />
-            </div>
-          ))}
-        </div>
-      )}
-    </>
+    </div>
   );
 }
 
