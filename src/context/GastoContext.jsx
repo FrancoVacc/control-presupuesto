@@ -2,14 +2,12 @@ import { useContext, createContext, useState } from "react";
 
 export const GastoContext = createContext();
 
-const initialData = [];
-
 const GastoProvider = ({ children }) => {
   const [presupuesto, setPresupuesto] = useState(0);
   const [isValidPresupuesto, setIsValidPresupuesto] = useState(false);
   const [disponible, setDisponible] = useState(presupuesto);
   const [utilizado, setUtilizado] = useState(0);
-  const [gastos, setGastos] = useState(initialData);
+  const [gastos, setGastos] = useState([]);
   const [gastoEditar, setGastoEditar] = useState(null);
   const [modal, setModal] = useState(false);
   const [animarModal, setAnimarModal] = useState(false);

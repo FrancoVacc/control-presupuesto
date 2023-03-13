@@ -19,8 +19,8 @@ import IconoSalud from "../img/icono_salud.svg";
 import IconoSuscripciones from "../img/icono_suscripciones.svg";
 
 const Gasto = ({ gasto, handleModal }) => {
-  const { setGastoEditar, gastoEditar } = useGastosContext();
-  const { id, name, categoria, cantidad, fecha } = gasto;
+  const { setGastoEditar, setGastos, gastos } = useGastosContext();
+  const { name, categoria, cantidad, fecha } = gasto;
   const imgCategoria = {
     ahorro: IconoAhorro,
     comida: IconoComida,
@@ -36,6 +36,11 @@ const Gasto = ({ gasto, handleModal }) => {
     handleModal();
   };
 
+  const handleEliminar = () => {
+    const deleteGastos = gastos.filter((item) => item.id !== gasto.id);
+    setGastos(deleteGastos);
+  };
+
   const leadingActions = () => (
     <LeadingActions>
       <SwipeAction onClick={() => handleEditar()}>Editar</SwipeAction>
@@ -43,9 +48,7 @@ const Gasto = ({ gasto, handleModal }) => {
   );
   const trailingActions = () => (
     <TrailingActions>
-      <SwipeAction onClick={() => console.log("Eliminar")}>
-        Eliminar
-      </SwipeAction>
+      <SwipeAction onClick={() => handleEliminar()}>Eliminar</SwipeAction>
     </TrailingActions>
   );
   return (

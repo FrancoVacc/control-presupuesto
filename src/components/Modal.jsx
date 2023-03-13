@@ -30,7 +30,7 @@ const Modal = ({ handleModal, animarModal }) => {
       setError("El gasto debe ser mayor a 0");
       return;
     }
-    if (parseInt(nuevoGasto.cantidad) > disponible) {
+    if (Number(nuevoGasto.cantidad) > disponible) {
       setError("El gasto no puede exceder el presupuesto");
       return;
     }
