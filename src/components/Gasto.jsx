@@ -38,6 +38,7 @@ const Gasto = ({ gasto, handleModal }) => {
 
   const handleEliminar = () => {
     const deleteGastos = gastos.filter((item) => item.id !== gasto.id);
+
     setGastos(deleteGastos);
   };
 

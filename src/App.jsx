@@ -36,12 +36,12 @@ function App() {
     <div className={modal ? "fijar" : ""}>
       <Header />
       {isValidPresupuesto && (
-        <>
+        <div>
           <ListadoGastos handleModal={handleModal} />
           <div className="nuevo-gasto" onClick={handleModal}>
             <img src={imgNuevoGasto} alt="" />
           </div>
-        </>
+        </div>
       )}
       {modal && <Modal handleModal={handleModal} animarModal={animarModal} />}
     </div>
