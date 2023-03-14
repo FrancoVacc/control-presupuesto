@@ -3,12 +3,23 @@ import imgNuevoGasto from "./img/nuevo-gasto.svg";
 import Modal from "./components/Modal";
 import { useGastosContext } from "./context/GastoContext";
 import ListadoGastos from "./components/ListadoGastos";
+import Swal from "sweetalert2";
 
 function App() {
-  const { isValidPresupuesto, modal, setModal, animarModal, setAnimarModal } =
-    useGastosContext();
+  const {
+    isValidPresupuesto,
+    modal,
+    setModal,
+    animarModal,
+    setAnimarModal,
+    disponible,
+  } = useGastosContext();
 
   const handleModal = () => {
+    if (disponible === 0) {
+      Swal.fire("No tiene dinero disponible");
+      return;
+    }
     if (!modal) {
       setModal(true);
 
