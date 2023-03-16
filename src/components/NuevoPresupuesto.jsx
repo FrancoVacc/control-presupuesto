@@ -22,7 +22,7 @@ const NuevoPresupuesto = () => {
 
   return (
     <div className="relative flex justify-center">
-      <div className="absolute h-[100%] bg-gradient-to-r  from-cyan-400 to-fuchsia-600 blur-3xl w-[70%] mx-auto rounded-md flex"></div>
+      <div className="absolute h-[100%] bg-gradient-to-r  from-cyan-400 to-fuchsia-600 blur-xl w-[70%] mx-auto rounded-md flex"></div>
       <div className=" relative my-3 mx-3 md:h-[300px] bg-white w-[70%] md:w-[60%] md:mx-auto rounded-md flex justify-between items-center shadow-md dark:bg-neutral-800">
         <form
           className="flex flex-col items-center m-auto w-[90%]"

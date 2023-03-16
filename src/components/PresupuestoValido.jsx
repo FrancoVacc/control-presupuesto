@@ -67,7 +67,7 @@ const PresupuestoValido = () => {
   };
   return (
     <div className="relative flex justify-center">
-      <div className="absolute bg-gradient-to-r h-[100%] from-cyan-400 to-fuchsia-600 blur-3xl w-[100%] md:w-2/4 p-10 mx-5 md:mx-auto rounded-md"></div>
+      <div className="absolute bg-gradient-to-r h-[100%] from-cyan-400 to-fuchsia-600 blur-xl w-[100%] md:w-2/4 p-10 mx-5 md:mx-auto rounded-md"></div>
       <div className=" relative  md:grid md:grid-cols-2 bg-white dark:bg-neutral-800 md:w-2/4 p-10 mx-5 md:mx-auto rounded-md">
         <div className="p-5">
           <CircularProgressbar

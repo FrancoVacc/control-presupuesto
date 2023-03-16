@@ -1,9 +1,9 @@
 import Header from "./components/Header";
-import imgNuevoGasto from "./img/nuevo-gasto.svg";
 import Modal from "./components/Modal";
 import { useGastosContext } from "./context/GastoContext";
 import ListadoGastos from "./components/ListadoGastos";
 import Swal from "sweetalert2";
+import NuevoGastoBtn from "./components/NuevoGastoBtn";
 
 function App() {
   const {
@@ -39,10 +39,10 @@ function App() {
       <Header />
       {isValidPresupuesto && (
         <div>
-          <ListadoGastos handleModal={handleModal} />
-          <div className="nuevo-gasto" onClick={handleModal}>
-            <img src={imgNuevoGasto} alt="" />
+          <div>
+            <ListadoGastos handleModal={handleModal} />
           </div>
+          <NuevoGastoBtn handleModal={handleModal} />
         </div>
       )}
       {modal && <Modal handleModal={handleModal} animarModal={animarModal} />}

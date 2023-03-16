@@ -3,13 +3,19 @@ import { useGastosContext } from "../context/GastoContext";
 const Filtros = () => {
   const { filtro, setFiltro } = useGastosContext();
   return (
-    <div className="filtros sombra contenedor">
+    <div className="my-10">
       <form>
-        <div className="campo">
-          <label htmlFor="categoría">Filtrar Gastos</label>
+        <div className="w-[100%] text-center">
+          <label
+            htmlFor="categoria"
+            className="text-4xl text-neutral-300 font-bold block text-center mb-2"
+          >
+            Filtrar Gastos
+          </label>
           <select
             id="categoria"
             value={filtro}
+            className="w-2/3 rounded-md text-center py-2 bg-neutral-300"
             onChange={(e) => setFiltro(e.target.value)}
           >
             <option value="">Todos</option>

@@ -58,18 +58,22 @@ const Gasto = ({ gasto, handleModal }) => {
         leadingActions={leadingActions()}
         trailingActions={trailingActions()}
       >
-        <div className="gasto sombra">
-          <div className="contenido-gasto">
-            <img src={imgCategoria[categoria]} alt="icono gasto" />
-            <div className="descripcion-gasto">
-              <p className="categoria">{categoria}</p>
-              <p className="nombre-gasto">{name}</p>
-              <p className="fecha-gasto">
+        <div className="flex gap-2 justify-between items-center bg-neutral-900 w-[100%] px-10 py-5 rounded-md mb-10">
+          <div className="flex gap-2 items-center">
+            <img
+              src={imgCategoria[categoria]}
+              alt="icono gasto"
+              className="md:h-[25%] md:w-[25%] hidden md:block"
+            />
+            <div className="flex flex-col gap-2">
+              <p className=" text-neutral-300 text-6xl">{categoria}</p>
+              <p className=" text-neutral-300 text-4xl">{name}</p>
+              <p className=" text-neutral-300 text-2xl">
                 Agregado el: <span>{fecha}</span>
               </p>
             </div>
           </div>
-          <p className="cantidad-gasto">${cantidad}</p>
+          <p className=" text-fuchsia-300 font-black text-5xl">${cantidad}</p>
         </div>
       </SwipeableListItem>
     </SwipeableList>

@@ -404,14 +404,14 @@ body .modal {
 
 /*** SWIPE LIST OVERRIDES **/
 .swipe-action__leading {
-    background-color: var(--azul);
+    background-color: #22d3ee;
     color: var(--blanco);
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
 }
 
 .swipe-action__trailing {
-    background-color: #db2777;
-    margin-bottom: 2rem;
+    background-color: #c026d3;
+    margin-bottom: 2.5rem;
     color: var(--blanco);
 }
 
