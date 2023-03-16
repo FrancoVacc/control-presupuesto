@@ -32,8 +32,10 @@ function App() {
     }
   };
 
+  const fijar = "overflow-hidden h-100%";
+
   return (
-    <div className={modal ? "fijar" : ""}>
+    <div className={modal ? fijar : ""}>
       <Header />
       {isValidPresupuesto && (
         <div>

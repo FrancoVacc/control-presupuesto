@@ -62,32 +62,41 @@ const PresupuestoValido = () => {
         : percentage < 80 && percentage > 50
         ? "#f55f04"
         : "#f50404",
-    trailColor: "#f5f5f5",
+    trailColor: "#d4d4d4",
+    textColor: "#c026d3",
   };
   return (
-    <div className="contenedor-presupuesto contenedor sombra dos-columnas">
-      <div className="contenido-presupuesto">
-        <CircularProgressbar
-          value={percentage}
-          text={`${percentage}%`}
-          styles={buildStyles(progressBarOptions)}
-        />
-      </div>
-      <div className="contenido-presupuesto">
-        <div>
-          <button className="reset-app" onClick={() => resetApp()}>
-            Resetear App
-          </button>
+    <div className="relative flex justify-center">
+      <div className="absolute bg-gradient-to-r h-[100%] from-cyan-400 to-fuchsia-600 blur-3xl w-[100%] md:w-2/4 p-10 mx-5 md:mx-auto rounded-md"></div>
+      <div className=" relative  md:grid md:grid-cols-2 bg-white dark:bg-neutral-800 md:w-2/4 p-10 mx-5 md:mx-auto rounded-md">
+        <div className="p-5">
+          <CircularProgressbar
+            value={percentage}
+            text={`${percentage}%`}
+            styles={buildStyles(progressBarOptions)}
+          />
         </div>
-        <p>
-          <span>Presupuesto:</span> {formateo(presupuesto)}
-        </p>
-        <p>
-          <span>Disponible:</span> {formateo(disponible)}
-        </p>
-        <p>
-          <span>Utilizado:</span> {formateo(utilizado)}
-        </p>
+        <div className="p-5">
+          <div>
+            <button
+              className=" bg-fuchsia-600 text-white py-2 text-center w-[100%] text-md rounded-md mb-5"
+              onClick={() => resetApp()}
+            >
+              Resetear App
+            </button>
+          </div>
+          <p className="dark:text-white text-neutral-900 text-4xl my-5">
+            <span className="font-bold">Presupuesto:</span>{" "}
+            {formateo(presupuesto)}
+          </p>
+          <p className="dark:text-white text-neutral-900 text-4xl my-5">
+            <span className="font-bold">Disponible:</span>{" "}
+            {formateo(disponible)}
+          </p>
+          <p className="dark:text-white text-neutral-900 text-4xl my-5">
+            <span className="font-bold">Utilizado:</span> {formateo(utilizado)}
+          </p>
+        </div>
       </div>
     </div>
   );

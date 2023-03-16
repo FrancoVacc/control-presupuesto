@@ -6,8 +6,10 @@ import PresupuestoValido from "./PresupuestoValido";
 const Header = () => {
   const { isValidPresupuesto, presupuesto } = useGastosContext();
   return (
-    <header>
-      <h1>Controlador de Gastos</h1>
+    <header className="py-2">
+      <h1 className=" text-6xl text-center m-0 px-[3rem] py-2 text-white">
+        Controlador de Gastos
+      </h1>
       {!isValidPresupuesto && presupuesto === 0 ? (
         <NuevoPresupuesto />
       ) : (

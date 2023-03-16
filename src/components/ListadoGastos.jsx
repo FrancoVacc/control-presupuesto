@@ -18,7 +18,7 @@ const ListadoGastos = ({ handleModal }) => {
     <div className="listado-gastos contenedor">
       {gastos.length && <Filtros />}
       <div className="listado-gastos contenedor">
-        <h2>
+        <h2 className=" text-3xl">
           {gastos.length ? "Listado de Gastos" : "Sin gastos, agrega uno"}
         </h2>
         {filtro
