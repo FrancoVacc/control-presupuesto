@@ -3,7 +3,7 @@ import { useGastosContext } from "../context/GastoContext";
 import NuevoPresupuesto from "./NuevoPresupuesto";
 import PresupuestoValido from "./PresupuestoValido";
 
-const Header = () => {
+const Header = ({ handleModal, animarModal }) => {
   const { isValidPresupuesto, presupuesto } = useGastosContext();
   return (
     <header className="py-2">
@@ -13,7 +13,10 @@ const Header = () => {
       {!isValidPresupuesto && presupuesto === 0 ? (
         <NuevoPresupuesto />
       ) : (
-        <PresupuestoValido />
+        <PresupuestoValido
+          handleModal={handleModal}
+          animarModal={animarModal}
+        />
       )}
     </header>
   );

@@ -3,8 +3,9 @@ import Swal from "sweetalert2";
 import { useGastosContext } from "../context/GastoContext";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import Modal from "./Modal";
 
-const PresupuestoValido = () => {
+const PresupuestoValido = ({ handleModal, animarModal }) => {
   const {
     presupuesto,
     setPresupuesto,
@@ -15,6 +16,7 @@ const PresupuestoValido = () => {
     utilizado,
     setUtilizado,
     gastos,
+    modal,
   } = useGastosContext();
 
   useEffect(() => {
@@ -65,41 +67,46 @@ const PresupuestoValido = () => {
     trailColor: "#d4d4d4",
     textColor: "#c026d3",
   };
-  return (
-    <div className="relative flex justify-center">
-      <div className="absolute bg-gradient-to-r h-[100%] from-cyan-400 to-fuchsia-600 blur-xl w-[100%] md:w-2/4 p-10 mx-5 md:mx-auto rounded-md"></div>
-      <div className=" relative  md:grid md:grid-cols-2 bg-white dark:bg-neutral-800 md:w-2/4 p-10 mx-5 md:mx-auto rounded-md">
-        <div className="p-5">
-          <CircularProgressbar
-            value={percentage}
-            text={`${percentage}%`}
-            styles={buildStyles(progressBarOptions)}
-          />
-        </div>
-        <div className="p-5">
-          <div>
-            <button
-              className=" bg-fuchsia-600 text-white py-2 text-center w-[100%] text-md rounded-md mb-5"
-              onClick={() => resetApp()}
-            >
-              Resetear App
-            </button>
+
+  if (!modal)
+    return (
+      <div className="relative flex justify-center">
+        <div className="absolute bg-gradient-to-r h-[100%] from-cyan-400 to-fuchsia-600 blur-xl w-[100%] md:w-2/4 p-10 mx-5 md:mx-auto rounded-md"></div>
+        <div className=" relative  md:grid md:grid-cols-2 bg-white dark:bg-neutral-800 md:w-2/4 p-10 mx-5 md:mx-auto rounded-md">
+          <div className="p-5">
+            <CircularProgressbar
+              value={percentage}
+              text={`${percentage}%`}
+              styles={buildStyles(progressBarOptions)}
+            />
           </div>
-          <p className="dark:text-white text-neutral-900 text-4xl my-5">
-            <span className="font-bold">Presupuesto:</span>{" "}
-            {formateo(presupuesto)}
-          </p>
-          <p className="dark:text-white text-neutral-900 text-4xl my-5">
-            <span className="font-bold">Disponible:</span>{" "}
-            {formateo(disponible)}
-          </p>
-          <p className="dark:text-white text-neutral-900 text-4xl my-5">
-            <span className="font-bold">Utilizado:</span> {formateo(utilizado)}
-          </p>
+          <div className="p-5">
+            <div>
+              <button
+                className=" bg-fuchsia-600 text-white py-2 text-center w-[100%] text-md rounded-md mb-5"
+                onClick={() => resetApp()}
+              >
+                Resetear App
+              </button>
+            </div>
+            <p className="dark:text-white text-neutral-900 text-4xl my-5">
+              <span className="font-bold">Presupuesto:</span>{" "}
+              {formateo(presupuesto)}
+            </p>
+            <p className="dark:text-white text-neutral-900 text-4xl my-5">
+              <span className="font-bold">Disponible:</span>{" "}
+              {formateo(disponible)}
+            </p>
+            <p className="dark:text-white text-neutral-900 text-4xl my-5">
+              <span className="font-bold">Utilizado:</span>{" "}
+              {formateo(utilizado)}
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+
+  return <Modal handleModal={handleModal} animarModal={animarModal} />;
 };
 
 export default PresupuestoValido;

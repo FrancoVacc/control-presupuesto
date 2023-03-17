@@ -32,11 +32,9 @@ function App() {
     }
   };
 
-  const fijar = "overflow-hidden h-100%";
-
   return (
-    <div className={modal ? fijar : ""}>
-      <Header />
+    <div>
+      <Header handleModal={handleModal} animarModal={animarModal} />
       {isValidPresupuesto && (
         <div>
           <div>
@@ -45,7 +43,6 @@ function App() {
           <NuevoGastoBtn handleModal={handleModal} />
         </div>
       )}
-      {modal && <Modal handleModal={handleModal} animarModal={animarModal} />}
     </div>
   );
 }
