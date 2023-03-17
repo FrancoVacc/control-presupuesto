@@ -62,22 +62,22 @@ const Modal = ({ handleModal, animarModal }) => {
   return (
     <div className="relative flex justify-center">
       <div className="absolute bg-gradient-to-r h-[100%] from-cyan-400 to-fuchsia-600 blur-xl w-[100%] md:w-2/4 p-10 mx-5 md:mx-auto rounded-md"></div>
-      <div className=" relative flex justify-center bg-white dark:bg-neutral-800 md:w-2/4 p-10 mx-5 md:mx-auto rounded-md">
-        <div className="absolute right-3 top-3 w-14  h-14">
-          <img src={imgCerrarModal} alt="" onClick={cerrarModal} />
-        </div>
+      <div className=" relative flex justify-center bg-neutral-200 dark:bg-neutral-800 md:w-2/4 p-10 mx-5 md:mx-auto rounded-md">
         <form
           className={`flex flex-col items-center justify-center w-[100%] ${
             animarModal && "animar"
           }`}
         >
-          <legend className=" text-4xl text-neutral-200">
+          <legend className=" text-4xl text-neutral-800 dark:text-neutral-200">
             {!gastoEditar ? "Nuevo Gasto" : "Editar Gasto"}
           </legend>
           <div className="w-[100%] my-12 h-1 bg-gradient-to-r from-cyan-500 to-fuchsia-600"></div>
-          <div className="w-2/3">
+          <div className="md:w-2/3">
             <div className="flex justify-between items-center mb-2">
-              <label htmlFor="nombre" className="text-2xl text-neutral-200">
+              <label
+                htmlFor="nombre"
+                className="text-2xl text-neutral-800 dark:text-neutral-200"
+              >
                 Nombre del Gasto
               </label>
               <input
@@ -93,7 +93,10 @@ const Modal = ({ handleModal, animarModal }) => {
               />
             </div>
             <div className="flex justify-between items-center mb-2">
-              <label htmlFor="cantidad" className="text-2xl text-neutral-200">
+              <label
+                htmlFor="cantidad"
+                className="text-2xl text-neutral-800 dark:text-neutral-200"
+              >
                 Cantidad
               </label>
               <input
@@ -116,7 +119,10 @@ const Modal = ({ handleModal, animarModal }) => {
                 setNuevoGasto({ ...nuevoGasto, categoria: e.target.value })
               }
             >
-              <label htmlFor="categoría" className="text-2xl text-neutral-200">
+              <label
+                htmlFor="categoría"
+                className="text-2xl text-neutral-800 dark:text-neutral-200"
+              >
                 Categoría
               </label>
               <select id="categoria" className="w-2/3 rounded-md py-2 px-5">

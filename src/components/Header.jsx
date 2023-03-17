@@ -6,7 +6,7 @@ import PresupuestoValido from "./PresupuestoValido";
 const Header = ({ handleModal, animarModal }) => {
   const { isValidPresupuesto, presupuesto } = useGastosContext();
   return (
-    <header className="py-2">
+    <header className="py-2 dark:bg-none bg-gradient-to-r from-cyan-300 to-fuchsia-600">
       <h1 className=" text-6xl text-center m-0 px-[3rem] py-2 text-white">
         Controlador de Gastos
       </h1>

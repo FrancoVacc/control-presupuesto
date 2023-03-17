@@ -14,6 +14,7 @@ const GastoProvider = ({ children }) => {
   const [modal, setModal] = useState(false);
   const [animarModal, setAnimarModal] = useState(false);
   const [filtro, setFiltro] = useState("");
+  const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
     localStorage.setItem("gastos", JSON.stringify(gastos));
@@ -47,6 +48,8 @@ const GastoProvider = ({ children }) => {
         setAnimarModal,
         filtro,
         setFiltro,
+        darkMode,
+        setDarkMode,
       }}
     >
       {children}

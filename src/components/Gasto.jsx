@@ -58,7 +58,7 @@ const Gasto = ({ gasto, handleModal }) => {
         leadingActions={leadingActions()}
         trailingActions={trailingActions()}
       >
-        <div className="flex gap-2 justify-between items-center bg-neutral-900 w-[100%] px-10 py-5 rounded-md mb-10">
+        <div className="flex gap-2 justify-between items-center bg-neutral-200 shadow-md dark:bg-neutral-900 w-[100%] px-10 py-5 rounded-md mb-10">
           <div className="flex gap-2 items-center">
             <img
               src={imgCategoria[categoria]}
@@ -66,14 +66,20 @@ const Gasto = ({ gasto, handleModal }) => {
               className="md:h-[25%] md:w-[25%] hidden md:block"
             />
             <div className="flex flex-col gap-2">
-              <p className=" text-neutral-300 text-6xl">{categoria}</p>
-              <p className=" text-neutral-300 text-4xl">{name}</p>
-              <p className=" text-neutral-300 text-2xl">
+              <p className=" text-neutral-800 dark:text-neutral-300 text-6xl">
+                {categoria}
+              </p>
+              <p className=" text-neutral-800 dark:text-neutral-300 text-4xl">
+                {name}
+              </p>
+              <p className=" text-neutral-800 dark:text-neutral-300 text-2xl">
                 Agregado el: <span>{fecha}</span>
               </p>
             </div>
           </div>
-          <p className=" text-fuchsia-300 font-black text-5xl">${cantidad}</p>
+          <p className=" text-neutral-800 dark:text-neutral-300 font-black text-5xl">
+            ${cantidad}
+          </p>
         </div>
       </SwipeableListItem>
     </SwipeableList>

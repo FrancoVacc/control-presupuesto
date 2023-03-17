@@ -19,7 +19,7 @@ const ListadoGastos = ({ handleModal }) => {
       <div className="w-[100%] my-12 h-1 bg-gradient-to-r from-cyan-500 to-fuchsia-600"></div>
       {gastos.length ? <Filtros /> : ""}
 
-      <h2 className=" text-4xl text-neutral-300 text-center">
+      <h2 className=" text-4xl text-neutral-800 dark:text-neutral-300 text-center">
         {gastos.length ? "Listado de Gastos" : "Sin gastos, agrega uno"}
       </h2>
       {filtro

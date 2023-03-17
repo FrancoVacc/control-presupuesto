@@ -4,6 +4,7 @@ import { useGastosContext } from "./context/GastoContext";
 import ListadoGastos from "./components/ListadoGastos";
 import Swal from "sweetalert2";
 import NuevoGastoBtn from "./components/NuevoGastoBtn";
+import DarkModeBtn from "./components/DarkModeBtn";
 
 function App() {
   const {
@@ -13,6 +14,8 @@ function App() {
     animarModal,
     setAnimarModal,
     disponible,
+    darkMode,
+    setDarkMode,
   } = useGastosContext();
 
   const handleModal = () => {
@@ -32,8 +35,20 @@ function App() {
     }
   };
 
+  const handleDarkMode = () => {
+    document.documentElement.classList.toggle("dark");
+    if (darkMode) {
+      setDarkMode(false);
+    } else {
+      setDarkMode(true);
+    }
+  };
+
   return (
     <div>
+      <div className="absolute top-5 right-5" onClick={handleDarkMode}>
+        <DarkModeBtn />
+      </div>
       <Header handleModal={handleModal} animarModal={animarModal} />
       {isValidPresupuesto && (
         <div>

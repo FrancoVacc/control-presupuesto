@@ -8,7 +8,7 @@ const Filtros = () => {
         <div className="w-[100%] text-center">
           <label
             htmlFor="categoria"
-            className="text-4xl text-neutral-300 font-bold block text-center mb-2"
+            className="text-4xl text-neutral-800 dark:text-neutral-300 font-bold block text-center mb-2"
           >
             Filtrar Gastos
           </label>
