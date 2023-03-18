@@ -4,7 +4,7 @@ import Filtros from "./Filtros";
 import Gasto from "./Gasto";
 
 const ListadoGastos = ({ handleModal }) => {
-  const { gastos, filtro } = useGastosContext();
+  const { gastos, filtro, darkMode } = useGastosContext();
   const [gastosFiltrados, setGastosFiltrados] = useState([]);
 
   useEffect(() => {
@@ -16,7 +16,9 @@ const ListadoGastos = ({ handleModal }) => {
 
   return (
     <div className=" flex flex-col gap-2 md:w-1/2 mx-auto px-5 mb-14">
-      <div className="w-[100%] my-12 h-1 bg-gradient-to-r from-cyan-500 to-fuchsia-600"></div>
+      {!darkMode && (
+        <div className="w-[100%] my-12 h-1 bg-gradient-to-r from-cyan-500 to-fuchsia-600"></div>
+      )}
       {gastos.length ? <Filtros /> : ""}
 
       <h2 className=" text-4xl text-neutral-800 dark:text-neutral-300 text-center">

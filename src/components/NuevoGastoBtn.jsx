@@ -8,7 +8,7 @@ const NuevoGastoBtn = ({ handleModal }) => {
 
   return (
     <div
-      className="flex justify-center md:justify-end fixed bottom-0 dark:bg-neutral-800 w-[100%] h-5 md:h-auto py-1 md:bg-transparent  md:bottom-10 md:right-10"
+      className="flex justify-center md:justify-end fixed bottom-0 dark:bg-neutral-800 w-[100%] h-5 md:h-auto  py-1 md:dark:bg-transparent md:bg-transparent md:bottom-10 md:right-10"
       onClick={handleModal}
     >
       {!modal ? (

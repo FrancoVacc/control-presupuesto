@@ -3,7 +3,8 @@ import { useGastosContext } from "../context/GastoContext";
 import Validation from "./Validation";
 
 const NuevoPresupuesto = () => {
-  const { setPresupuesto, setIsValidPresupuesto } = useGastosContext();
+  const { setPresupuesto, setIsValidPresupuesto, darkMode } =
+    useGastosContext();
   const [validation, setValidation] = useState(false);
   const [pres, setPres] = useState(0);
 
@@ -22,7 +23,9 @@ const NuevoPresupuesto = () => {
 
   return (
     <div className="relative flex justify-center">
-      <div className="absolute h-[100%] bg-gradient-to-r  from-cyan-400 to-fuchsia-600 blur-xl w-[70%] mx-auto rounded-md flex"></div>
+      {!darkMode && (
+        <div className="absolute h-[100%] bg-gradient-to-r  from-cyan-400 to-fuchsia-600 blur-xl w-[70%] mx-auto rounded-md flex"></div>
+      )}
       <div className=" relative my-3 mx-3 md:h-[300px] bg-neutral-200 w-[70%] md:w-[60%] md:mx-auto rounded-md flex justify-between items-center shadow-md dark:bg-neutral-800">
         <form
           className="flex flex-col items-center m-auto w-[90%]"

@@ -5,6 +5,7 @@ import ListadoGastos from "./components/ListadoGastos";
 import Swal from "sweetalert2";
 import NuevoGastoBtn from "./components/NuevoGastoBtn";
 import DarkModeBtn from "./components/DarkModeBtn";
+import LigthModeBtn from "./components/LigthModeBtn";
 
 function App() {
   const {
@@ -46,8 +47,11 @@ function App() {
 
   return (
     <div>
-      <div className="absolute top-5 right-5" onClick={handleDarkMode}>
-        <DarkModeBtn />
+      <div
+        className="fixed bottom-1 md:absolute md:top-5 right-5 z-20"
+        onClick={handleDarkMode}
+      >
+        {darkMode ? <LigthModeBtn /> : <DarkModeBtn />}
       </div>
       <Header handleModal={handleModal} animarModal={animarModal} />
       {isValidPresupuesto && (
