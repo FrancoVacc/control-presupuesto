@@ -40,6 +40,7 @@ const Gasto = ({ gasto, handleModal }) => {
     const deleteGastos = gastos.filter((item) => item.id !== gasto.id);
 
     setGastos(deleteGastos);
+    setGastoEditar(null);
   };
 
   const leadingActions = () => (

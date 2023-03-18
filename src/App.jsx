@@ -17,10 +17,11 @@ function App() {
     disponible,
     darkMode,
     setDarkMode,
+    gastoEditar,
   } = useGastosContext();
 
   const handleModal = () => {
-    if (disponible === 0) {
+    if (disponible === 0 && gastoEditar === null) {
       Swal.fire("No tiene dinero disponible");
       return;
     }

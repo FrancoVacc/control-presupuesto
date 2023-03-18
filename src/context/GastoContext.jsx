@@ -2,7 +2,7 @@ import { useContext, createContext, useState, useEffect } from "react";
 
 export const GastoContext = createContext();
 const initialData = JSON.parse(localStorage.getItem("gastos")) || [];
-const initialPresupuesto = JSON.parse(localStorage.getItem("presupuesto"));
+const initialPresupuesto = JSON.parse(localStorage.getItem("presupuesto")) || 0;
 
 const GastoProvider = ({ children }) => {
   const [presupuesto, setPresupuesto] = useState(initialPresupuesto);
